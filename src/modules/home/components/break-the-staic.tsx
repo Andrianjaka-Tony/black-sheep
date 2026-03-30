@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function BreakTheStatic() {
   return (
-    <div className="bg-[#FAF9F6] px-40 py-20 w-screen flex items-center">
+    <div className="bg-white-1 px-40 py-40 w-screen flex items-center">
       <div className="w-1/2">
         <h2 className="mt-4 font-ws text-green-2 text-8xl font-black uppercase leading-[0.8] opacity-80">
           <span>Break the</span> <br /> <span>static</span>
