@@ -21,11 +21,15 @@ p {
 }
 
 @theme {
+  --color-white-1: #faf9f6;
+
   --color-yellow-1: #f4da40;
   --color-yellow-2: #ffe066;
 
   --color-green-1: #1b3022;
   --color-green-2: #024111;
+
+  --color-brown-1: #2c1810;
 
   --font-sm: var(--font-space-mono);
   --font-ws: var(--font-work-sans);
