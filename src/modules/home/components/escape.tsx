@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const escapes: EscapeCardType[] = [
   {
-    image: "/images/hero.png",
+    image: "/images/wild-networking.jpg",
     alt: "Wild networking",
     title: (
       <>
@@ -18,7 +18,7 @@ const escapes: EscapeCardType[] = [
     badgeRotation: 3,
   },
   {
-    image: "/images/hero.png",
+    image: "/images/fit-and-crazy.jpg",
     alt: "Fit & Crazy",
     title: (
       <>
@@ -32,7 +32,7 @@ const escapes: EscapeCardType[] = [
     badgeRotation: -2,
   },
   {
-    image: "/images/hero.png",
+    image: "/images/dare-dancing.jpg",
     alt: "Dare Dancing",
     title: (
       <>
@@ -46,8 +46,8 @@ const escapes: EscapeCardType[] = [
     badgeRotation: 3,
   },
   {
-    image: "/images/hero.png",
-    alt: "Wild networking",
+    image: "/images/no-purpose-day.jpg",
+    alt: "No Purpose day",
     title: (
       <>
         No
