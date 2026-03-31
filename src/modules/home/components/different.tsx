@@ -2,19 +2,19 @@ import { ArrowRight } from "lucide-react";
 
 export function Different() {
   return (
-    <div className="bg-white-1 text-green-1 px-40 py-40 w-screen flex flex-col items-center">
-      <h2 className="mt-4 font-ws text-8xl font-black uppercase leading-[0.8] text-center">
-        <span>How it's</span> <br /> <span>different</span>
+    <div className="bg-white-1 text-green-1 px-6 md:px-20 lg:px-40 py-20 lg:py-40 w-screen flex flex-col items-center">
+      <h2 className="mt-4 font-ws text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.8] text-center">
+        <span>How it&apos;s</span> <br /> <span>different</span>
       </h2>
-      <p className="mt-8 flex items-center font-cg text-xl italic">
+      <p className="mt-8 flex items-center font-cg text-lg md:text-xl italic text-center">
         Freelancers are alone — you need bonding through experience.
       </p>
 
-      <div className="mt-16 bg-green-1/70 w-2/3 aspect-video rounded-lg"></div>
+      <div className="mt-16 bg-green-1/70 w-full md:w-2/3 aspect-video rounded-lg"></div>
       {/* yellow badge */}
 
-      <div className="mt-32 w-full flex justify-between items-center">
-        <div className="w-1/3 flex flex-col gap-8 text-brown-1">
+      <div className="mt-20 lg:mt-32 w-full flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-0">
+        <div className="w-full lg:w-1/3 flex flex-col gap-8 text-brown-1">
           <div className="flex items-center font-sm uppercase tracking-tight">
             <div className="h-px w-8 bg-yellow-1 mr-3 translate-y-0.5" />
             <p>02 - Creative Reset</p>
@@ -49,7 +49,7 @@ export function Different() {
         </div>
         {/* right content */}
         <div
-          className="relative pb-2 w-3/10 flex items-end justify-center"
+          className="relative pb-2 w-full sm:w-2/3 lg:w-3/10 flex items-end justify-center"
           style={{ aspectRatio: 312 / 389 }}
         >
           <div className="absolute bottom-4 right-1/8 w-full h-full bg-[#CC9C6B] scale-80 rounded-lg shadow-lg flex flex-col items-center justify-center font-c text-3xl tracking-tight rotate-8"></div>
@@ -70,11 +70,11 @@ export function Different() {
         </div>
       </div>
 
-      <div className="mt-32 w-full grid grid-cols-5 gap-10">
-        <div className="bg-green-1/90 col-span-3 rounded-xl p-16">
+      <div className="mt-20 lg:mt-32 w-full grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10">
+        <div className="bg-green-1/90 md:col-span-3 rounded-xl p-8 md:p-16">
           <p className="text-xs text-yellow-1 font-sm uppercase tracking-tight">Pillar Three</p>
-          <h3 className="text-white mt-8 text-5xl font-ws uppercase font-black leading-none">
-            <span>There's a</span> <br />
+          <h3 className="text-white mt-8 text-4xl md:text-5xl font-ws uppercase font-black leading-none">
+            <span>There&apos;s a</span> <br />
             <span>secret moment</span>
             <br />
             <span>in every trip</span>
@@ -82,11 +82,11 @@ export function Different() {
           <div className="text-white mt-12 flex flex-col gap-2 font-i tracking-tight">
             <p>Unexpected location.</p>
             <p>Surprise drivers.</p>
-            <p className="text-xl font-cg italic opacity-80">Exactly what doesn't see coming.</p>
+            <p className="text-xl font-cg italic opacity-80">Exactly what doesn&apos;t see coming.</p>
             <p className="mt-8 text-sm opacity-60">Not revealed here.</p>
           </div>
         </div>
-        <div className="bg-white col-span-2 rounded-xl py-16 px-10 shadow-lg">
+        <div className="bg-white md:col-span-2 rounded-xl py-8 md:py-16 px-8 md:px-10 shadow-lg">
           <h3 className="text-green-1 text-3xl font-ws uppercase font-black leading-none">
             <span>BONDING</span> <br />
             <span>THROUGH</span>

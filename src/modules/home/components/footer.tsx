@@ -3,14 +3,14 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="text-white bg-green-1 px-40 py-40 pb-20 w-screen flex flex-col items-center">
+    <footer className="text-white bg-green-1 px-6 md:px-20 lg:px-40 py-20 lg:py-40 pb-10 lg:pb-20 w-screen flex flex-col items-center">
       <div className="bg-yellow-1 text-green-1 px-5 py-3 mb-12 text-xs font-sm rounded -rotate-2">
         LIMITED SPOTS • APRIL 2026
       </div>
-      <h2 className="font-ws text-8xl text-center font-black uppercase leading-[0.8] opacity-90">
+      <h2 className="font-ws text-5xl md:text-7xl lg:text-8xl text-center font-black uppercase leading-[0.8] opacity-90">
         <span>Ready to</span> <br /> <span>reset?</span>
       </h2>
-      <p className="mt-8 flex items-center font-cg text-3xl italic opacity-80">
+      <p className="mt-8 flex items-center font-cg text-xl md:text-2xl lg:text-3xl italic opacity-80 text-center">
         Join the next cohort of Black Sheep heading to Madeira.
       </p>
 
@@ -20,7 +20,7 @@ export function Footer() {
 
       <p className="mt-4 font-c tracking-tight text-xl opacity-50">(application takes 3 minutes)</p>
 
-      <div className="py-16 mt-24 w-full grid grid-cols-4 gap-4 border-y border-white/20">
+      <div className="py-12 lg:py-16 mt-16 lg:mt-24 w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-y border-white/20">
         <div className="space-y-6 text-sm">
           <p className="font-ws uppercase font-semibold">About</p>
           <div className="space-y-3 font-i opacity-70">
@@ -56,7 +56,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mt-6 w-full flex justify-between items-center">
+      <div className="mt-6 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
         <div className="flex items-center">
           <p className="text-3xl">🐑</p>
           <p className="ml-4 font-sm text-xs opacity-50 uppercase tracking-tight">

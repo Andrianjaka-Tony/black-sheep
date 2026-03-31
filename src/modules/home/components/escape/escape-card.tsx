@@ -26,13 +26,13 @@ export function EscapeCard({ escape }: Props) {
       <div className="absolute top-0 left-0 h-full w-full bg-linear-to-t from-green-1/70 to-transparent" />
 
       <div className="absolute top-0 left-0 p-6 h-full w-full text-white flex flex-col justify-end">
-        <h3 className="font-ws text-6xl font-black uppercase leading-[0.8] opacity-80">
+        <h3 className="font-ws text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.8] opacity-80">
           {escape.title}
         </h3>
 
         <div className="mt-4 font-c">
           {escape.tags.map((tag, key) => (
-            <p key={key} className="text-2xl leading-none">
+            <p key={key} className="text-lg md:text-xl lg:text-2xl leading-none">
               {tag}
             </p>
           ))}
