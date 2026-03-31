@@ -4,9 +4,12 @@ import { ArrowRight } from "lucide-react";
 export function Hero() {
   return (
     <div className="h-screen w-screen relative text-white">
-      <img
-        src="/images/hero.png"
-        alt="Hero image"
+      <video
+        src="/videos/hero.mov"
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute top-0 left-0 h-full w-full object-cover brightness-50 grayscale-50"
       />
       <div className="absolute z-0 bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
