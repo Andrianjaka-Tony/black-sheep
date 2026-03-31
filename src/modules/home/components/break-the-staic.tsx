@@ -1,7 +1,33 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { useRef, useState } from "react";
 
 export function BreakTheStatic() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying(true);
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  }
+
   return (
     <div className="bg-white-1 px-40 py-40 w-screen flex items-center">
       <div className="w-1/2">
@@ -40,11 +66,30 @@ export function BreakTheStatic() {
           </p>
         </div>
 
-        <img
-          src="/images/break-the-static-image.jpg"
+        <video
+          ref={videoRef}
+          src="/videos/static.mov"
+          autoPlay
+          muted
+          loop
+          playsInline
           className="absolute top-7 -left-4 w-full object-cover rounded shadow-lg -rotate-1"
           style={{ aspectRatio: 544 / 627 }}
         />
+        <div className="absolute bottom-10 left-2 flex gap-2 z-10">
+          <button
+            onClick={togglePlay}
+            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+          >
+            {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
+          <button
+            onClick={toggleMute}
+            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+          >
+            {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
     </div>
   );
