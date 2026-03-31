@@ -48,6 +48,26 @@ export function Different() {
           </div>
         </div>
         {/* right content */}
+        <div
+          className="relative pb-2 w-3/10 flex items-end justify-center"
+          style={{ aspectRatio: 312 / 389 }}
+        >
+          <div className="absolute bottom-4 right-1/8 w-full h-full bg-[#CC9C6B] scale-80 rounded-lg shadow-lg flex flex-col items-center justify-center font-c text-3xl tracking-tight rotate-8"></div>
+          <div className="absolute overflow-hidden top-0 right-95/100 w-full h-full bg-[#7CB5A5] rounded-lg shadow-lg flex items-center justify-center text-white font-c text-3xl tracking-tight scale-90">
+            <img
+              src="/images/difference.png"
+              alt="difference"
+              className="absolute h-full w-full object-cover -z-1 brightness-80"
+            />
+            film challenge
+          </div>
+          <div className="absolute top-0 left-0 w-full h-full bg-green-2 scale-80 rounded-lg shadow-lg flex flex-col items-center justify-center font-c text-3xl tracking-tight">
+            <p className="font-ws text-lg text-white tracking-tight uppercase">Your soundtrack</p>
+            <p className="text-yellow-1">share your playlist</p>
+          </div>
+
+          <p className="text-2xl font-c tracking-tight">this wasn't planned</p>
+        </div>
       </div>
 
       <div className="mt-32 w-full grid grid-cols-5 gap-10">
