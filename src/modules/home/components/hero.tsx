@@ -34,12 +34,12 @@ export function Hero() {
         </div>
 
         <div className="mt-10 relative h-fit w-fit">
-          <p className="hidden md:flex absolute top-1/2 -translate-y-1/2 -translate-x-full items-center text-yellow-2 font-c text-2xl">
+          <p className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -translate-x-full items-center text-yellow-2 font-c text-2xl animate-floating">
             step out <span className="ml-2 -translate-y-1">→</span>
           </p>
-          <Button className="md:ml-6 bg-white text-green-1">
+          <Button className="lg:ml-6 bg-white text-green-1 hover:shadow-lg hover:shadow-white/30">
             <span className="tracking-tight">Choose your adventure</span>
-            <ArrowRight className="h-4 w-4" strokeWidth={3} />
+            <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
           </Button>
         </div>
       </div>

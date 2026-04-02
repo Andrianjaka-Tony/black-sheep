@@ -29,39 +29,50 @@ export function BreakTheStatic() {
   }
 
   return (
-    <div className="bg-white-1 px-6 md:px-20 lg:px-40 py-20 lg:py-40 w-screen flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-      <div className="w-full lg:w-1/2">
-        <h2 className="mt-4 font-ws text-green-2 text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.8] opacity-80">
-          <span>Break the</span> <br /> <span>static</span>
+    <div className="bg-white-1 px-6 md:px-8 xl:px-40 py-12 md:py-16 xl:py-40 w-screen flex flex-col xl:flex-row items-center xl:items-start gap-10 xl:gap-0">
+      {/* left: text */}
+      <div className="w-full xl:w-1/2 flex flex-col md:items-center md:text-center xl:items-start xl:text-left">
+        <h2 className="font-ws text-green-2 text-5xl md:text-6xl xl:text-8xl font-black uppercase leading-[0.85] opacity-80">
+          <span className="xl:hidden">Break the static</span>
+          <span className="hidden xl:inline">
+            Break the
+            <br />
+            static
+          </span>
         </h2>
 
-        <div className="px-6 py-2 mt-8 font-i text-green-2 line-through border-l border-yellow-1 opacity-50">
+        <div className="px-4 py-2 mt-8 font-i text-green-2 text-sm md:text-base line-through border-l border-yellow-1 opacity-50">
           <p>Not a retreat</p>
-          <p>Not a mass tourism </p>
+          <p>Not a mass tourism</p>
           <p>Not another workshop or &quot;growth camp.&quot;</p>
         </div>
 
-        <div className="bg-yellow-1 px-6 py-3 mt-6 w-fit font-ws text-green-2 font-bold tracking-tight rounded -rotate-2">
-          <span>Just do epic things with interesting people —</span>
-          <br />
-          <span>and see what changes.</span>
+        <div className="bg-yellow-1 px-5 py-3 mt-6 w-fit font-ws text-green-2 text-sm md:text-base font-bold tracking-tight rounded -rotate-2">
+          <span className="xl:hidden">Just do epic things with interesting people — and see what changes.</span>
+          <span className="hidden xl:inline">
+            Just do epic things with interesting people —
+            <br />
+            and see what changes.
+          </span>
         </div>
 
-        <p className="mt-16 w-full md:w-2/3 font-i text-green-2">
+        <p className="mt-10 md:mt-16 max-w-sm font-i text-green-2 text-sm md:text-base leading-relaxed">
           We craft out-of-the-box trips where entrepreneurs, freelancers, and creators leave the
-          &quot;Status Quo&quot; behind to reconnect through adrenaline, fun activities, and raw nature. It&apos;s
-          an authentic way to step out of your comfort zone and back into the wild.
+          &quot;Status Quo&quot; behind to reconnect through adrenaline, fun activities, and raw
+          nature. It&apos;s an authentic way to step out of your comfort zone and back into the
+          wild.
         </p>
 
-        <Button className="mt-8 bg-green-2">
+        <Button className="mt-8 bg-green-2 hover:shadow-lg hover:shadow-green-2/40">
           <span className="text-white tracking-tight">Choose your adventure</span>
-          <ArrowRight className="h-4 w-4 text-yellow-1" strokeWidth={3} />
+          <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5 xl:h-4 xl:w-4 text-yellow-1 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
         </Button>
       </div>
 
-      <div className="relative lg:ml-auto w-full sm:w-3/4 lg:w-2/5" style={{ aspectRatio: 544 / 685 }}>
-        <div className="absolute top-0 left-0 py-2.25 px-4 h-full w-full bg-[#D4A5744D] flex items-end justify-end rounded rotate-3">
-          <p className="text-green-2 flex items-center font-c">
+      {/* right: video */}
+      <div className="relative xl:ml-auto w-4/5 sm:w-3/5 md:w-1/2 xl:w-2/5 mx-auto xl:mx-0" style={{ aspectRatio: 544 / 685 }}>
+        <div className="absolute top-0 left-0 h-full w-full bg-[#D4A5744D] flex items-end justify-end px-4 pb-3 rounded rotate-3">
+          <p className="text-green-2 flex items-center font-c text-sm animate-floating-slow">
             Worth it <span className="ml-2 -translate-y-1">→</span>
           </p>
         </div>

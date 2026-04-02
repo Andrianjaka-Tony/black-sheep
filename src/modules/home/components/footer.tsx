@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="text-white bg-green-1 px-6 md:px-20 lg:px-40 py-20 lg:py-40 pb-10 lg:pb-20 w-screen flex flex-col items-center">
+    <footer className="text-white bg-green-1 px-6 md:px-16 lg:px-40 py-16 lg:py-40 pb-10 lg:pb-20 w-screen flex flex-col items-center">
       <div className="bg-yellow-1 text-green-1 px-5 py-3 mb-12 text-xs font-sm rounded -rotate-2">
         LIMITED SPOTS • APRIL 2026
       </div>
@@ -14,11 +14,11 @@ export function Footer() {
         Join the next cohort of Black Sheep heading to Madeira.
       </p>
 
-      <Button className="bg-white mt-12 w-fit text-[#0F1F15]">
-        Apply now <ArrowRight className="h-4 w-4" strokeWidth={3} />
+      <Button className="bg-white mt-12 w-fit text-[#0F1F15] hover:shadow-lg hover:shadow-white/30">
+        Apply now <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
       </Button>
 
-      <p className="mt-4 font-c tracking-tight text-xl opacity-50">(application takes 3 minutes)</p>
+      <p className="mt-4 font-c tracking-tight text-xl opacity-50 animate-floating-slow">(application takes 3 minutes)</p>
 
       <div className="py-12 lg:py-16 mt-16 lg:mt-24 w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-y border-white/20">
         <div className="space-y-6 text-sm">
