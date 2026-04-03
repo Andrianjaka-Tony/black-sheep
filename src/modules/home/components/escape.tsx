@@ -21,11 +21,17 @@ const escapes: EscapeCardType[] = [
     image: "/images/fit-and-crazy.jpg",
     alt: "Fit & Crazy",
     title: (
-      <>
-        Fit &
+      <div className="relative w-fit">
+        <span className="line-through">Fat</span>
+        {" & "}
+        <img
+          className="h-25 object-cover absolute left-full -translate-y-2/3 -translate-x-1/4 bottom-0 font-c font-black"
+          src="/images/fit.svg"
+          alt="Fit"
+        />
         <br />
         Crazy
-      </>
+      </div>
     ),
     tags: ["Combine workouts", "and fun activities."],
     badge: "AUTHENTIC ONLY",
@@ -84,7 +90,10 @@ export function Escape() {
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
         <Button className="bg-yellow-2 mt-6 w-fit text-[#0F1F15] shadow-lg shadow-yellow-2/50">
           See All Upcoming Trips{" "}
-          <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
+          <ArrowRight
+            className="h-3 w-3 md:h-3.5 md:w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 group-hover:translate-x-1"
+            strokeWidth={3}
+          />
         </Button>
         <p className="text-yellow-1 flex items-center font-c text-xl md:text-2xl italic opacity-50 animate-floating-delayed">
           honestly... all of them ✨

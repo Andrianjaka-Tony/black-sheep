@@ -15,7 +15,7 @@ type Props = { escape: EscapeCardType };
 
 export function EscapeCard({ escape }: Props) {
   return (
-    <div className="relative w-full rounded-lg overflow-hidden [aspect-ratio:3/4] xl:[aspect-ratio:636/520]">
+    <div className="relative w-full rounded-lg overflow-hidden [aspect-ratio:3/4] xl:[aspect-ratio:636/520] hover:scale-105 hover:rotate-2 duration-400">
       <img
         src={escape.image}
         alt={escape.alt}
@@ -37,7 +37,11 @@ export function EscapeCard({ escape }: Props) {
         </div>
 
         <Button className="bg-yellow-2 mt-2 w-fit text-[#0F1F15] hover:shadow-lg hover:shadow-yellow-2/50">
-          Explore this trip <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
+          Explore this trip{" "}
+          <ArrowRight
+            className="h-3 w-3 md:h-3.5 md:w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 group-hover:translate-x-1"
+            strokeWidth={3}
+          />
         </Button>
       </div>
 
