@@ -97,11 +97,11 @@ export function BreakTheStatic() {
             loop
             playsInline
             preload="metadata"
-            poster="/videos/static-poster.jpg"
+            poster="/videos/no-studio-poster.jpg"
             className="h-full w-full object-cover rounded shadow-lg"
           >
-            <source src="/videos/static.av1.mp4" type="video/mp4; codecs=av01.0.08M.08" />
-            <source src="/videos/static.mp4" type="video/mp4" />
+            <source src="/videos/no-studio.av1.mp4" type="video/mp4; codecs=av01.0.08M.08" />
+            <source src="/videos/no-studio.web.mp4" type="video/mp4" />
           </video>
           <div className="absolute bottom-4 left-4 flex gap-2 z-10">
             <button
