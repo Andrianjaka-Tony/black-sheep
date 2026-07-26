@@ -1,4 +1,5 @@
 import { BreakTheStatic } from "@/modules/home/components/break-the-staic";
+import { DearFutureDancer } from "@/modules/home/components/dear-future-dancer";
 import { Different } from "@/modules/home/components/different";
 import { Escape } from "@/modules/home/components/escape";
 import { Footer } from "@/modules/home/components/footer";
@@ -11,11 +12,12 @@ export function HomePage() {
   return (
     <Fragment>
       <Hero />
-      <BreakTheStatic />
       <Look />
+      <BreakTheStatic />
+      <DearFutureDancer />
       <Stay />
-      <Escape />
-      <Different />
+      {/* <Escape />
+      <Different /> */}
       <Footer />
     </Fragment>
   );
