@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="text-white bg-green-1 px-6 md:px-16 lg:px-40 py-16 lg:py-40 pb-10 lg:pb-20 w-screen flex flex-col items-center">
+    <footer className="text-white bg-green-1 px-6 md:px-16 lg:px-40 py-8 lg:py-20 pb-5 lg:pb-10 w-screen flex flex-col items-center">
       <div className="bg-yellow-1 text-green-1 px-5 py-3 mb-12 text-xs font-sm rounded -rotate-2">
         LIMITED SPOTS • APRIL 2026
       </div>

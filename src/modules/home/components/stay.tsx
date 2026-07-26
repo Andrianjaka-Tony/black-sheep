@@ -124,7 +124,7 @@ export function Stay() {
   return (
     <div
       id="stay"
-      className="bg-white-1 px-6 md:px-8 xl:px-40 py-12 md:py-16 xl:py-32 w-screen flex flex-col"
+      className="bg-white-1 px-6 md:px-8 xl:px-40 py-6 md:py-8 xl:py-16 w-screen flex flex-col"
     >
       <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
         <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />

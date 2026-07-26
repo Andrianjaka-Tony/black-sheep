@@ -69,7 +69,7 @@ const escapes: EscapeCardType[] = [
 
 export function Escape() {
   return (
-    <div className="text-white bg-green-1 px-6 md:px-16 xl:px-40 py-16 xl:py-40 w-screen flex flex-col items-center">
+    <div className="text-white bg-green-1 px-6 md:px-16 xl:px-40 py-8 xl:py-20 w-screen flex flex-col items-center">
       <h2 className="font-ws text-5xl md:text-7xl xl:text-8xl text-center font-black uppercase leading-[0.8] opacity-90">
         <span>Choose your</span> <br /> <span>escape</span>
       </h2>

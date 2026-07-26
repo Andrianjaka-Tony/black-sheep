@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Different() {
   return (
-    <div className="bg-white-1 text-green-1 px-6 md:px-12 lg:px-40 py-16 md:py-24 lg:py-40 w-screen flex flex-col items-center">
+    <div className="bg-white-1 text-green-1 px-6 md:px-12 lg:px-40 py-8 md:py-12 lg:py-20 w-screen flex flex-col items-center">
       <h2 className="font-ws text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.85] text-center">
         <span>How it&apos;s</span>
         <br />

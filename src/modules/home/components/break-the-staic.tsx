@@ -29,7 +29,7 @@ export function BreakTheStatic() {
   }
 
   return (
-    <div className="bg-white-1 px-6 md:px-8 xl:px-40 py-12 md:py-16 xl:py-40 w-screen flex flex-col xl:flex-row items-center xl:items-start gap-10 xl:gap-0">
+    <div className="bg-white-1 px-6 md:px-8 xl:px-40 py-6 md:py-8 xl:py-20 w-screen flex flex-col xl:flex-row items-center xl:items-start gap-10 xl:gap-0">
       {/* left: text */}
       <div className="w-full xl:w-1/2 flex flex-col md:items-center md:text-center xl:items-start xl:text-left">
         <h2 className="font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
