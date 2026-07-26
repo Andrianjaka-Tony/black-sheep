@@ -44,7 +44,7 @@ const photoItem = {
 };
 
 const cardClassName =
-  "group relative aspect-9/16 overflow-hidden rounded-lg bg-green-1/70 shadow-lg";
+  "group relative aspect-9/16 scale-90 overflow-hidden rounded-lg bg-green-1/70 shadow-lg";
 
 function LookOverlay({
   caption,
