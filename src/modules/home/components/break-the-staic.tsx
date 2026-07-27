@@ -82,14 +82,15 @@ export function BreakTheStatic() {
       </div>
 
       {/* right: video */}
-      <div className="relative xl:ml-auto w-4/5 sm:w-3/5 md:w-1/2 xl:w-2/5 mx-auto xl:mx-0" style={{ aspectRatio: 544 / 685 }}>
+      {/* 720x1280 is the encoded size of no-studio.*.mp4 — keep both boxes on it so nothing resizes on load */}
+      <div className="relative xl:ml-auto w-3/5 sm:w-2/5 md:w-1/3 xl:w-3/10 mx-auto xl:mx-0" style={{ aspectRatio: 720 / 1280 }}>
         <div className="absolute top-0 left-0 h-full w-full bg-[#D4A5744D] flex items-end justify-end px-4 pb-3 rounded rotate-3">
           <p className="text-green-2 flex items-center font-c text-sm animate-floating-slow">
             Worth it <span className="ml-2 -translate-y-1">→</span>
           </p>
         </div>
 
-        <div className="absolute top-7 -left-4 w-full" style={{ aspectRatio: 544 / 627 }}>
+        <div className="absolute -top-8 -left-4 w-full" style={{ aspectRatio: 720 / 1280 }}>
           <video
             ref={videoRef}
             autoPlay
