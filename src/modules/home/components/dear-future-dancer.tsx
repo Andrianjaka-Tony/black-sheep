@@ -12,6 +12,7 @@ type Moment = {
   media: Media;
   note: string;
   rotation: string;
+  title?: string;
   text: string;
 };
 
@@ -37,6 +38,7 @@ const moments: Moment[] = [
     },
     note: "Sunrise, black sand",
     rotation: "rotate-[2.5deg]",
+    title: "Black Sand Beach Photoshoot",
     text: "At sunrise, we head to the black sand beach for a stunning pole photoshoot with the rising sun and the Atlantic Ocean as your backdrop.",
   },
   {
@@ -47,12 +49,14 @@ const moments: Moment[] = [
     },
     note: "Porto Moniz",
     rotation: "-rotate-2",
+    title: "Swim in the Porto Moniz Natural Pools",
     text: "We explore Porto Moniz's natural swimming pools, take a refreshing swim in the Atlantic, relax, laugh, and enjoy one of Madeira's most iconic spots together.",
   },
   {
     media: { kind: "photo", src: "/images/8-days/4.avif" },
     note: "Oceanfront dinner",
     rotation: "rotate-3",
+    title: "Enjoy an Oceanfront Dinner",
     text: "We gather for a special oceanfront dinner, enjoying great food, beautiful views, and a memorable evening together as a community.",
   },
 ];
@@ -207,12 +211,7 @@ function Polaroid({ media, note, rotation }: Omit<Moment, "text">) {
           {media.kind === "carousel" && <PolaroidCarousel photos={media.photos} note={note} />}
           {media.kind === "photo" && (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={media.src}
-              alt={note}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+            <img src={media.src} alt={note} loading="lazy" className="h-full w-full object-cover" />
           )}
         </div>
         <p className="absolute right-4 bottom-2 font-c text-green-2 text-xl -rotate-4">{note}</p>
@@ -223,35 +222,53 @@ function Polaroid({ media, note, rotation }: Omit<Moment, "text">) {
 
 export function DearFutureDancer() {
   return (
-    <div className="bg-white-1 px-6 md:px-8 xl:px-40 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
-      <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
-        <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
-        <p>Your 8 days</p>
+    <div className="bg-white-1 px-6 md:px-8 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
+      <div className="mx-auto w-full max-w-6xl flex flex-col">
+        <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
+          <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
+          <p>Your 8 days</p>
+        </div>
+
+        <h2 className="mt-4 font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
+          Dear dancer,
+        </h2>
+
+        <p className="mt-6 max-w-xl font-i text-green-2 text-sm md:text-base leading-relaxed">
+          During your stay in Madeira, you&apos;ll enjoy the perfect balance of relaxation,
+          adventure, and exclusive pole dancing experiences. Discover what awaits you!
+        </p>
+
+        <div className="mt-14 space-y-16 md:space-y-20">
+          {moments.map(({ media, note, rotation, title, text }, index) => (
+            <div
+              key={note}
+              className={`grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16 ${
+                index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <Polaroid media={media} note={note} rotation={rotation} />
+              <div>
+                {title && (
+                  <h3 className="font-ws text-green-2 text-xl md:text-2xl font-black uppercase leading-[0.95]">
+                    {title}
+                  </h3>
+                )}
+                <p
+                  className={`font-i text-green-2 text-base md:text-lg leading-relaxed opacity-90 ${
+                    title ? "mt-3" : ""
+                  }`}
+                >
+                  {text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* <p className="mt-16 font-c text-green-2 text-2xl md:text-3xl">
+          We can&apos;t wait to have you. — The Open Air Pole Camp Team
+        </p> */}
       </div>
-
-      <h2 className="mt-4 font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
-        Dear future dancer,
-      </h2>
-
-      <div className="mt-14 space-y-16 md:space-y-20">
-        {moments.map(({ media, note, rotation, text }, index) => (
-          <div
-            key={note}
-            className={`grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16 ${
-              index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-            }`}
-          >
-            <Polaroid media={media} note={note} rotation={rotation} />
-            <p className="font-i text-green-2 text-lg md:text-2xl leading-relaxed opacity-90">
-              {text}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <p className="mt-16 font-c text-green-2 text-2xl md:text-3xl">
-        We can&apos;t wait to have you. — The Open Air Pole Camp Team
-      </p>
     </div>
   );
 }
