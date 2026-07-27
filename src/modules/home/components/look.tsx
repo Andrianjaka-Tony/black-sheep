@@ -176,38 +176,40 @@ function LookCard({ src, poster, caption, href, rotation }: LookItem) {
 
 export function Look() {
   return (
-    <div className="bg-white-1 px-6 md:px-8 xl:px-40 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
-      <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
-        <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
-        <p>From past retreats</p>
-      </div>
+    <div className="bg-white-1 px-6 md:px-8 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
+      <div className="mx-auto w-full max-w-6xl flex flex-col">
+        <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
+          <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
+          <p>From past retreats</p>
+        </div>
 
-      <h2 className="mt-4 max-w-3xl font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
-        This is what it actually looks like
-      </h2>
+        <h2 className="mt-4 max-w-3xl font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
+          This is what it actually looks like
+        </h2>
 
-      <p className="mt-6 max-w-xl font-i text-green-2 text-sm md:text-base leading-relaxed">
-        See what our past retreats actually looked like — in the exact same garden you&apos;ll be
-        training in.
-      </p>
+        <p className="mt-6 max-w-xl font-i text-green-2 text-sm md:text-base leading-relaxed">
+          See what our past retreats actually looked like — in the exact same garden you&apos;ll be
+          training in.
+        </p>
 
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {items.map((item) => (
-          <LookCard key={item.href} {...item} />
-        ))}
-        <LookPhotoCard {...photoItem} />
-      </div>
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {items.map((item) => (
+            <LookCard key={item.href} {...item} />
+          ))}
+          <LookPhotoCard {...photoItem} />
+        </div>
 
-      <div className="mt-10 flex justify-center">
-        <a
-          href="https://www.tiktok.com/@madeira_creative_village"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-sm text-green-2 text-xs md:text-sm uppercase tracking-widest hover:text-green-1 transition-colors"
-        >
-          <Music2 className="h-4 w-4" />
-          For more, follow @madeira_creative_village
-        </a>
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://www.tiktok.com/@madeira_creative_village"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-sm text-green-2 text-xs md:text-sm uppercase tracking-widest hover:text-green-1 transition-colors"
+          >
+            <Music2 className="h-4 w-4" />
+            For more, follow @madeira_creative_village
+          </a>
+        </div>
       </div>
     </div>
   );

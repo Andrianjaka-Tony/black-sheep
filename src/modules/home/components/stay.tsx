@@ -14,15 +14,10 @@ type StayPlace = {
 
 const places: StayPlace[] = [
   {
-    photos: [
-      "/images/stay/villa-1.avif",
-      "/images/stay/villa-2.avif",
-      "/images/stay/villa-3.avif",
-    ],
+    photos: ["/images/stay/villa-1.avif", "/images/stay/villa-2.avif", "/images/stay/villa-3.avif"],
     hand: "Wake up where you train",
     title: "The Villa",
-    description:
-      "Garden studio facing the ocean, home base for every pole and yoga session.",
+    description: "Garden studio facing the ocean, home base for every pole and yoga session.",
     note: "On-site training",
   },
   {
@@ -35,8 +30,7 @@ const places: StayPlace[] = [
     badge: "Limited to 4 guests",
     hand: "Wake up on black sand, Seixal",
     title: "Black Sand Beach House",
-    description:
-      "2 double beds, shared by 4 pole friends, steps from Seixal's black sand beach.",
+    description: "2 double beds, shared by 4 pole friends, steps from Seixal's black sand beach.",
     note: "15 min from the villa · parking on-site",
   },
 ];
@@ -122,27 +116,26 @@ function StayCard({ photos, badge, hand, title, description, note }: StayPlace) 
 
 export function Stay() {
   return (
-    <div
-      id="stay"
-      className="bg-white-1 px-6 md:px-8 xl:px-40 py-6 md:py-8 xl:py-16 w-screen flex flex-col"
-    >
-      <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
-        <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
-        <p>Your home base</p>
-      </div>
+    <div id="stay" className="bg-white-1 px-6 md:px-8 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
+      <div className="mx-auto w-full max-w-6xl flex flex-col">
+        <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
+          <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
+          <p>Your home base</p>
+        </div>
 
-      <h2 className="mt-4 font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
-        Two ways to stay
-      </h2>
+        <h2 className="mt-4 font-ws text-green-2 text-4xl md:text-5xl xl:text-7xl font-black uppercase leading-[0.85] opacity-80">
+          Two ways to stay
+        </h2>
 
-      <p className="mt-6 max-w-xl font-i text-green-2 text-sm md:text-base leading-relaxed">
-        Both are 15 minutes apart — pick whichever calls to you most.
-      </p>
+        <p className="mt-6 max-w-xl font-i text-green-2 text-sm md:text-base leading-relaxed">
+          Both are 15 minutes apart — pick whichever calls to you most.
+        </p>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 md:items-stretch">
-        {places.map((place) => (
-          <StayCard key={place.title} {...place} />
-        ))}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 md:items-stretch">
+          {places.map((place) => (
+            <StayCard key={place.title} {...place} />
+          ))}
+        </div>
       </div>
     </div>
   );

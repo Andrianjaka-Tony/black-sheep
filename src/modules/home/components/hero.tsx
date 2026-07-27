@@ -21,7 +21,7 @@ export function Hero() {
         <div className="h-6 w-px bg-white opacity-80" />
       </div>
 
-      <div className="relative px-6 md:px-20 lg:px-40 h-full w-full top-0 left-0 flex flex-col justify-center">
+      <div className="relative mx-auto max-w-6xl px-6 md:px-8 h-full w-full flex flex-col justify-center">
         <h2 className="text-xs font-sm uppercase opacity-80">
           Early bird registration — save €150
         </h2>
