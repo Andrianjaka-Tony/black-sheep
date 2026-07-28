@@ -238,7 +238,7 @@ export function DearFutureDancer() {
           adventure, and exclusive pole dancing experiences. Discover what awaits you!
         </p>
 
-        <div className="mt-14 space-y-16 md:space-y-20">
+        <div className="mt-12 space-y-8 md:space-y-10">
           {moments.map(({ media, note, rotation, title, text }, index) => (
             <div
               key={note}
