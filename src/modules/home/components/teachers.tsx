@@ -1,25 +1,8 @@
 "use client";
 
+import { Instagram } from "@/components/icons";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-
-// lucide dropped its brand icons, so the Instagram glyph lives here
-function Instagram({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" />
-    </svg>
-  );
-}
 
 type Reel = {
   src: string;
@@ -335,7 +318,7 @@ export function Teachers() {
         </p>
 
         <div className="mt-16 space-y-20 md:space-y-24">
-          {teachers.map((teacher) => (
+          {teachers.reverse().map((teacher) => (
             <TeacherArticle key={teacher.name} {...teacher} />
           ))}
         </div>
