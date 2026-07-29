@@ -61,7 +61,18 @@ const moments: Moment[] = [
   },
 ];
 
-function PolaroidVideo({ src, poster, note }: { src: string; poster: string; note: string }) {
+function PolaroidVideo({
+  src,
+  poster,
+  note,
+  // the header polaroid has a photo overlapping its bottom-left corner
+  controlsPosition = "bottom-3 left-3",
+}: {
+  src: string;
+  poster: string;
+  note: string;
+  controlsPosition?: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const pausedByUser = useRef(false);
   const [playing, setPlaying] = useState(true);
@@ -126,7 +137,7 @@ function PolaroidVideo({ src, poster, note }: { src: string; poster: string; not
         aria-label={note}
         className="h-full w-full object-cover"
       />
-      <div className="absolute bottom-3 left-3 flex gap-2 z-10">
+      <div className={`absolute ${controlsPosition} flex gap-2 z-10`}>
         <button
           onClick={togglePlay}
           className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
@@ -220,10 +231,44 @@ function Polaroid({ media, note, rotation }: Omit<Moment, "text">) {
   );
 }
 
+// sits on top of the header, so it never pushes the copy around
+function HeaderMedia() {
+  return (
+    <div className="absolute top-0 right-0 hidden w-64 xl:w-72 lg:block">
+      {/* photo overlapping the video's bottom-left corner */}
+      <div className="absolute -left-20 -bottom-10 z-10 hidden w-40 -rotate-6 rounded bg-white p-2 pb-6 shadow-lg sm:block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/8-days/future-dancer.avif"
+          alt="Hanging pole above the Atlantic"
+          loading="lazy"
+          className="aspect-square w-full object-cover"
+        />
+      </div>
+
+      <div className="relative rotate-3 rounded bg-white p-3 pb-10 shadow-lg">
+        <div className="relative aspect-4/5 overflow-hidden bg-green-1/70">
+          <PolaroidVideo
+            src="/images/8-days/future-dancer.mp4"
+            poster="/images/8-days/future-dancer-poster.jpg"
+            note="Your week in Madeira"
+            controlsPosition="top-3 left-3"
+          />
+        </div>
+        <p className="absolute right-4 bottom-2 font-c text-green-2 text-xl -rotate-4">
+          Your 8 days →
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function DearFutureDancer() {
   return (
     <div className="bg-white-1 px-6 md:px-8 py-6 md:py-8 xl:py-16 w-screen flex flex-col">
-      <div className="mx-auto w-full max-w-6xl flex flex-col">
+      <div className="relative mx-auto w-full max-w-6xl flex flex-col">
+        <HeaderMedia />
+
         <div className="flex items-center font-sm text-green-2 uppercase tracking-tight text-sm">
           <div className="h-px w-8 bg-yellow-1 mr-3 shrink-0" />
           <p>Your 8 days</p>
