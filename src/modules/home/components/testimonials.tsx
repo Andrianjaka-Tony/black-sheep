@@ -1,62 +1,175 @@
+"use client";
+
+import { Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
 type Story = {
-  // the card falls back to a placeholder until an image lands here
-  image?: string;
+  media: { kind: "photo"; src: string } | { kind: "video"; src: string; poster: string };
   label: string;
   rotation: string;
+  // the three variants keep the cards out of sync with each other
+  float: string;
 };
 
 const stories: Story[] = [
   {
-    image: "/images/stories/ponta-do-sol.avif",
-    label: "Ponta do Sol",
+    media: {
+      kind: "video",
+      src: "/images/stories/the-crew.mp4",
+      poster: "/images/stories/the-crew-poster.jpg",
+    },
+    label: "The crew, on the coast",
+    float: "animate-floating-slow",
     rotation: "-rotate-4",
   },
   {
-    image: "/images/stories/pole-on-the-mast.avif",
-    label: "Pole on the mast",
+    media: {
+      kind: "video",
+      src: "/images/stories/hanging-pole.mp4",
+      poster: "/images/stories/hanging-pole-poster.jpg",
+    },
+    label: "Pole above the Atlantic",
+    float: "animate-floating-delayed",
     rotation: "rotate-3",
   },
   {
-    image: "/images/stories/cliffside-flow.avif",
-    label: "Cliffside flow",
+    media: { kind: "photo", src: "/images/stories/green-cliffs.avif" },
+    label: "Green cliffs, all together",
+    float: "animate-floating-slow",
     rotation: "-rotate-2",
   },
   {
-    image: "/images/stories/pole-camp-madeira.avif",
+    media: { kind: "photo", src: "/images/stories/pole-camp-madeira.avif" },
     label: "Pole Camp Madeira",
+    float: "animate-floating-delayed",
     rotation: "rotate-4",
   },
   {
-    image: "/images/stories/atlantic-day.avif",
-    label: "Atlantic day",
+    media: { kind: "photo", src: "/images/stories/boat-day.avif" },
+    label: "Boat day",
+    float: "animate-floating-slow",
     rotation: "-rotate-3",
   },
   {
-    image: "/images/stories/mirella.avif",
-    label: "Mirella, Germany",
-    rotation: "rotate-2",
+    media: { kind: "photo", src: "/images/stories/fanal-forest.avif" },
+    label: "Fanal forest",
+    float: "animate-floating-delayed",
+    rotation: "-rotate-2",
   },
 ];
 
-function StoryCard({ image, label, rotation }: Story) {
-  return (
-    <div className={`relative shrink-0 snap-start w-55 md:w-60 aspect-3/4 ${rotation}`}>
-      {/* offset plate peeking out behind the photo */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 rounded-lg bg-white-1 shadow-lg"
-        style={{ transform: "translate(10px, 12px) rotate(2deg)" }}
-      />
+function StoryVideo({ src, poster, label }: { src: string; poster: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const pausedByUser = useRef(false);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
 
-      <div className="relative h-full w-full overflow-hidden rounded-lg bg-green-1/70 shadow-lg">
-        {image && (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img src={image} alt={label} loading="lazy" className="h-full w-full object-cover" />
-        )}
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
-        <p className="absolute inset-x-0 bottom-4 px-4 font-ws text-white text-base md:text-lg font-black uppercase tracking-tight leading-tight">
-          {label}
-        </p>
+  // only play the clips that are actually on screen
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (pausedByUser.current) return;
+          video.play().then(
+            () => setPlaying(true),
+            () => setPlaying(false),
+          );
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      pausedByUser.current = false;
+      video.play();
+      setPlaying(true);
+    } else {
+      pausedByUser.current = true;
+      video.pause();
+      setPlaying(false);
+    }
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  }
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="none"
+        aria-label={label}
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute top-3 left-3 flex gap-2 z-10">
+        <button
+          onClick={togglePlay}
+          className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+        >
+          {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+        </button>
+        <button
+          onClick={toggleMute}
+          className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+        >
+          {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+        </button>
+      </div>
+    </>
+  );
+}
+
+function StoryCard({ media, label, rotation, float }: Story) {
+  return (
+    <div className={`shrink-0 snap-start ${float}`}>
+      <div className={`relative w-55 md:w-60 aspect-3/4 ${rotation}`}>
+        {/* offset plate peeking out behind the photo */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 rounded-lg bg-white-1 shadow-lg"
+          style={{ transform: "translate(10px, 12px) rotate(2deg)" }}
+        />
+
+        <div className="relative h-full w-full overflow-hidden rounded-lg bg-green-1/70 shadow-lg">
+          {media.kind === "photo" ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={media.src}
+              alt={label}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <StoryVideo src={media.src} poster={media.poster} label={label} />
+          )}
+
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+          <p className="absolute inset-x-0 bottom-4 px-4 font-ws text-white text-base md:text-lg font-black uppercase tracking-tight leading-tight">
+            {label}
+          </p>
+        </div>
       </div>
     </div>
   );
