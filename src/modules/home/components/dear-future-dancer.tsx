@@ -25,7 +25,7 @@ const moments: Moment[] = [
     },
     note: "Sunset boat",
     rotation: "-rotate-3",
-    text: "You'll experience a unique sunset boat trip with a hanging pole — a fun and unforgettable activity. We'll also capture beautiful photos of you during this special moment.",
+    text: "You'll experience a unique sunset boat trip with a hanging pole — a fun and unforgettable activity.",
   },
   {
     media: {
